@@ -1,3 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: lightgray;
+    background-color: #2C3E50;
+}
+.box{
+    height: 18vh;
+    border-bottom: 1px solid white;
+    background-color: #BD4031;
+}
+/* .politesse{
+    margin-top: 8vh;
+    margin-left: 10%;
+    position: absolute;
+} */
+.boxtitre{
+    height: 10vh;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #E74C3C;
+    min-width: 150px;
+    min-height: 80px;
+}
+.boxmenu{
+    height: 5vh;
+    background-color: #2C3E50;
+}
+.menu{
+    height: 5vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+    background-color: #E74C3C;
+}
+.menu a{
+    color: white;
+    text-decoration: none;
+}
+.boxcontain{
+    background-color: brown;
+}
+.card_projet{
+    width: 400px;
+    background-color: #BD4031;
+}
+.card_projet:hover{
+    transform:scale(0.98);
+    transition-duration: 0.5s;
+}
+.img_card{
+    width: 90%;
+    
+    border-radius: 6px;
+    margin: 0 auto;
+}
+.card_projet a{
+    color: white;
+    text-decoration: none;
+}
+/* .name_card{
+    margin-left:10px;
+}
+.date_card{
+    margin-left:10px;
+} */
+.footer{
+    height: 8vh;
+    position: relative;
+    bottom:0;
+    border-top: 1px solid white;
+    background-color: #BD4031;
+}
+.textfooter{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+
 }
