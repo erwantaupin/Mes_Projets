@@ -26,4 +26,22 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    /**
+     * @Route("/admin/utilisateur", name="utilisateur")
+     */
+    public function utilisateur(): Response
+    {
+        return $this->render('admin/utilisateur.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+    /**
+     * @Route("/admin/archive", name="archive")
+     */
+    public function archive(): Response
+    {
+        return $this->render('admin/archive.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }

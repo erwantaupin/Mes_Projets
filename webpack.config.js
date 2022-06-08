@@ -57,7 +57,7 @@ Encore
 
     // enables Sass/SCSS support
     .copyFiles({
-        from: './assets/image'
+        from: './assets/image', to : 'images/[path][name].[ext]'
     })
     //.enableSassLoader()
 
