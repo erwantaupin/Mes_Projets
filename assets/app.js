@@ -11,5 +11,23 @@ import './styles/app.css';
 //Importation du css minifié bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import "datatables.net-bs5";
+import "datatables.net-responsive-bs5";
 
 //Importation de jquery
+import $ from "jquery";
+
+$(document).ready(function () {
+    $("#datatable").DataTable({
+      responsive: true,
+      paging: true,
+      filter: false,
+      lengthMenu: [5, 10],
+    });
+    $("#datadash").DataTable({
+      responsive: true,
+      paging: true,
+      filter: false,
+      lengthMenu: [5, 10],
+    });
+  });

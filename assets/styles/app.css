@@ -6,16 +6,12 @@
 body {
     background-color: #2C3E50;
 }
+/* partie homepage */
 .box{
     height: 18vh;
     border-bottom: 1px solid white;
     background-color: #BD4031;
 }
-/* .politesse{
-    margin-top: 8vh;
-    margin-left: 10%;
-    position: absolute;
-} */
 .boxtitre{
     height: 10vh;
     border: 1px solid white;
@@ -23,6 +19,9 @@ body {
     background-color: #E74C3C;
     min-width: 150px;
     min-height: 80px;
+}
+.boxtitreadmin{
+    width: 250px;
 }
 .boxmenu{
     height: 5vh;
@@ -59,12 +58,6 @@ body {
     color: white;
     text-decoration: none;
 }
-/* .name_card{
-    margin-left:10px;
-}
-.date_card{
-    margin-left:10px;
-} */
 .footer{
     height: 8vh;
     position: relative;
@@ -77,4 +70,48 @@ body {
     display: flex;
     align-items: center;
 
+}
+.git{
+    position: absolute; bottom: 0; right:0; margin-right: 50px;
+}
+/* partie crud */
+.menulat{
+    height: 80vh;
+    background-color: #BD4031;
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    color: black;
+}
+.retour{
+    border: 1px solid white;
+    border-radius: 4px;
+}
+.retour:hover{
+    transform: scale(0.95);
+    transition-duration: 0.5s;
+}
+.active {
+    text-shadow: 2px 3px 5px rgba(78, 0, 0, 0.8);
+    text-decoration: underline;
+}
+.tableau{
+    margin-bottom: 90px;
+}
+.box_menu1{
+    display: none;
+}
+.box_menu2{
+    display: block;
+}
+@media (max-width: 768px) {
+    .box_menu1{
+        display: block;
+    }
+    .box_menu2{
+        display: none;
+    }
 }
