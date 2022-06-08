@@ -74,6 +74,9 @@ body {
 .git{
     position: absolute; bottom: 0; right:0; margin-right: 50px;
 }
+.remove{
+    position: absolute; top: 0; right:0; margin-right: -10px; margin-top: -10px;
+}
 /* partie crud */
 .menulat{
     height: 80vh;
@@ -114,4 +117,42 @@ li a:hover{
     .box_menu2{
         display: none;
     }
+}
+/* page connexion et inscription */
+.box_retour{
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 3px;color: white;
+}
+.box_retour a{
+    color: white;
+}
+.box_retour:hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+    border: 1px solid black;color: black;
+}
+.box_retour a:hover{
+    color: black;
+}
+/* formaulaire inscription et connexion */
+
+.bg_form{
+    background-color: #BD4031;
+    border-radius: 7px;
+}
+.btnco{
+    width: 110px;
+    height: 55;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #BD4031;
+}
+.btnco:hover{
+    transform: scale(1.05);
+    transition-duration: 0.5s;
 }

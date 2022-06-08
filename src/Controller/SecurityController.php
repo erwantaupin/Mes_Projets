@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/security", name="app_security")
+     * @Route("/security", name="security")
      */
     public function index(): Response
     {

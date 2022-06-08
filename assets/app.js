@@ -17,6 +17,7 @@ import "datatables.net-responsive-bs5";
 //Importation de jquery
 import $ from "jquery";
 
+
 $(document).ready(function () {
     $("#datatable").DataTable({
       responsive: true,

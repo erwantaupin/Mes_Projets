@@ -1,20 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
+{% block title %}connexion
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="container-fluid text-white">
+		<div class="box row">
+			<div class="col-md-7 d-flex justify-content-between align-items-center mx-3 px-5">
+				<h5 class="box_retour">
+					<a href="{{path('home')}}">Retour</a>
+				</h5>
+				<div class="boxtitre col-3 d-flex justify-content-center align-items-center px-3">
+					<h1>Mes Projets</h1>
+				</div>
+			</div>
+		</div>
+		<div class="boxmenu row justify-content-center">
+			<div class="menu col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 d-flex justify-content-evenly align-items-center px-5">
+				<button class="btnco m-2" type="button" onclick="show('id1');">connexion</button>
+				<H3>/</H3>
+				<button class="btnco m-2" type="button" onclick="show('id2');">isncription</button>
+			</div>
+		</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+		<div class="row justify-content-center" id="id1" style="display: flex;">
+			<div class="col-4 bg_form my-5">
+				<div class="d-flex justify-content-center my-5">
+					<h3>Connexion</h3>
+				</div>
+				<form action="">
+					<div class="d-flex justify-content-center my-5">
+						<input class="w-75" type="text">
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<input class="w-75" type="text">
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<input class="w-75" type="text">
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<button type="submit" class="btnco">Se Connecter</button>
+					</div>
+				</form>
+			</div>
+		</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Mes_Projets/src/Controller/SecurityController.php'|file_link(0) }}">src/Controller/SecurityController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/Mes_Projets/templates/security/index.html.twig'|file_link(0) }}">templates/security/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+		<div class="row justify-content-center" id="id2" style="display: none;">
+			<div class="col-4 bg_form my-5">
+				<div class="d-flex justify-content-center my-5">
+					<h3>Inscription</h3>
+				</div>
+				<form action="">
+					<div class="d-flex justify-content-center my-5">
+						<input class="w-75" type="text">
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<input class="w-75" type="text">
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<input class="w-75" type="text">
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<button type="submit" class="btnco">S'inscrire'</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<footer class="fixed-bottom">
+			<div class="footer container-fluid ">
+				<div class="col-md-3 d-flex justify-content-center">
+					<h5 class="textfooter">&copy;.Copyright by Erwan</h5>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script>
+		function show(elementId) {
+document.getElementById("id1").style.display = "none";
+document.getElementById("id2").style.display = "none";
+document.getElementById(elementId).style.display = "flex";
+}
+	</script>
 {% endblock %}
