@@ -6,14 +6,25 @@ security:
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         users_in_memory: { memory: null }
+        in_database:
+            entity:
+             class: App\Entity\UserPp
+             property: mail
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+            provider: in_database
 
+            form_login:
+                login_path: security
+                check_path: security
+            
+            logout:
+                path: security_logout
+                target: home
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

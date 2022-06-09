@@ -15,12 +15,17 @@
 		</div>
 		<div class="boxmenu row justify-content-center">
 			<div class="menu col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 d-flex justify-content-evenly align-items-center px-5">
-				<a class="" href="{{path('security')}}">
-					<i class="fa-solid fa-user"></i>connexion</a>
-				<a class="" href="">
-					<i class="fa-solid fa-power-off"></i>deconnexion</a>
-				<a class="" href="{{path('dashboard')}}">
-					<i class="fa-solid fa-desktop"></i>panel admin</a>
+				{% if not app.user %}
+					<a class="" href="{{path('security')}}">
+						<i class="fa-solid fa-user"></i>connexion</a>
+				{% else %}
+					<a class="" href="{{path('security_logout')}}">
+						<i class="fa-solid fa-power-off"></i>deconnexion</a>
+				{% endif %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<a class="" href="{{path('dashboard')}}">
+						<i class="fa-solid fa-desktop"></i>panel admin</a>
+				{% endif %}
 			</div>
 		</div>
 		<div class="row justify-content-center m-5 p-4">
