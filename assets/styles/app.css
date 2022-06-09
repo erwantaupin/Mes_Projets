@@ -77,6 +77,35 @@ body {
 .remove{
     position: absolute; top: 0; right:0; margin-right: -10px; margin-top: -10px;
 }
+.btnadd{
+    width: 50px;
+    background: none;
+    border: none;
+}
+.btnadditem{
+    width: 50px;
+    border: 1px solid white;
+    border-radius:50%;
+}
+.btnadditem:hover{
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+}
+.box-additem{
+    border: 1px solid white;
+}
+.btnquitt{
+    margin-right: 15px;
+    text-decoration: none;
+}
+.x{
+    color: white;
+    font-size: 50px;
+}
+.x:hover{
+    transform: rotate(180deg);
+    transition-duration: 1s;
+}
 /* partie crud */
 .menulat{
     height: 80vh;

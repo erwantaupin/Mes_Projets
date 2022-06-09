@@ -24,8 +24,33 @@
 			</div>
 		</div>
 		<div class="row justify-content-center m-5 p-4">
-			<div class="d-flex justify-content-center my-4 mx-5 px-5">
-				<a href=""><img style="width: 50px; border: 1px solid white; border-radius:50%; background-color: white;" src="{{asset("build/images/plus.svg")}}" alt=""></a>
+			<div class="boxmenu row justify-content-center my-3">
+				<button class="btnadd" type="button" onclick="show('id1')"><img class="btnadditem" src="{{asset("build/images/plus.svg")}}" alt=""></button>
+			</div>
+			<div class=" modal justify-content-center" id="id1" style="display: none;">
+				<div class="box-additem col-12 col-md-8 bg_form my-5">
+					<a class="btnquitt d-flex justify-content-end" href="{{path('home')}}">
+						<p class="x">X</p>
+					</a>
+					<div class="d-flex justify-content-center my-5">
+						<h3>Ajout Projet</h3>
+					</div>
+
+					<form action="">
+						<div class="d-flex justify-content-center my-5">
+							<input class="w-75" type="text">
+						</div>
+						<div class="d-flex justify-content-center my-5">
+							<input class="w-75" type="text">
+						</div>
+						<div class="d-flex justify-content-center my-5">
+							<input class="w-75" type="text">
+						</div>
+						<div class="d-flex justify-content-center my-5">
+							<button type="submit" class="btnco">valider</button>
+						</div>
+					</form>
+				</div>
 			</div>
 			<div class="card_projet card m-2">
 				<a href="">
@@ -97,4 +122,10 @@
 			</div>
 		</footer>
 	</div>
+	<script>
+		function show(elementId) {
+document.getElementById("id1").style.display = "none";
+document.getElementById(elementId).style.display = "flex";
+}
+	</script>
 {% endblock %}
