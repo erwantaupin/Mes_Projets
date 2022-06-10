@@ -16,7 +16,9 @@
 		<div class="boxmenu row justify-content-center">
 			<div class="menu col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 d-flex justify-content-evenly align-items-center px-5">
 				{% if not app.user %}
-					<a class="" href="{{path('security')}}">
+					<a class="" href="{{path('subscription')}}">
+						<i class="fa-solid fa-user"></i>inscription</a>
+					<a class="" href="{{path('login')}}">
 						<i class="fa-solid fa-user"></i>connexion</a>
 				{% else %}
 					<a class="" href="{{path('security_logout')}}">

@@ -19,9 +19,12 @@ security:
             provider: in_database
 
             form_login:
-                login_path: security
-                check_path: security
-            
+                login_path: login
+                check_path: login
+                csrf_parameter: _csrf_security_token
+                csrf_token_id: a_private_string
+                default_target_path: home
+
             logout:
                 path: security_logout
                 target: home
@@ -34,8 +37,12 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/banni, roles: ROLE_BANNI }
+        - { path: ^/home, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
 
 when@test:
     security:
