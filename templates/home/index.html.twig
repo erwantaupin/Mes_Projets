@@ -43,20 +43,23 @@
 						<h3>Ajout Projet</h3>
 					</div>
 
-					<form action="">
-						<div class="d-flex justify-content-center my-5">
-							<input class="w-75" type="text">
-						</div>
-						<div class="d-flex justify-content-center my-5">
-							<input class="w-75" type="text">
-						</div>
-						<div class="d-flex justify-content-center my-5">
-							<input class="w-75" type="text">
-						</div>
-						<div class="d-flex justify-content-center my-5">
-							<button type="submit" class="btnco">valider</button>
-						</div>
-					</form>
+					{{ form_start(projetForm) }}
+					<div class="mx-4 my-5">
+						{{ form_row(projetForm.titre) }}
+					</div>
+					<div class="mx-4 my-5">
+						{{ form_row(projetForm.lien_projet) }}
+					</div>
+					<div class="mx-4 my-5">
+						{{ form_row(projetForm.lien_github) }}
+					</div>
+					<div class="mx-auto w-25 my-5">
+						{{ form_row(projetForm.main_image) }}
+					</div>
+					<div class="d-flex justify-content-center my-5">
+						<button type="submit" class="btnco">valider</button>
+					</div>
+					{{ form_end(projetForm) }}
 				</div>
 			</div>
 			<div class="card_projet card m-2">

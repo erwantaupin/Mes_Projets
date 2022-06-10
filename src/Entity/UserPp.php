@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserPpRepository;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -80,9 +82,15 @@ class UserPp implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $created_at;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ProjetPp::class, mappedBy="relation")
+     */
+    private $projetPps;
+
     public function __construct()
     {
         $this->created_at = new \DateTime("now");
+        $this->projetPps = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -185,6 +193,36 @@ class UserPp implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProjetPp>
+     */
+    public function getProjetPps(): Collection
+    {
+        return $this->projetPps;
+    }
+
+    public function addProjetPp(ProjetPp $projetPp): self
+    {
+        if (!$this->projetPps->contains($projetPp)) {
+            $this->projetPps[] = $projetPp;
+            $projetPp->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProjetPp(ProjetPp $projetPp): self
+    {
+        if ($this->projetPps->removeElement($projetPp)) {
+            // set the owning side to null (unless already changed)
+            if ($projetPp->getRelation() === $this) {
+                $projetPp->setRelation(null);
+            }
+        }
 
         return $this;
     }
