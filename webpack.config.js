@@ -59,9 +59,6 @@ Encore
     .copyFiles({
         from: './assets/image', to : 'images/[path][name].[ext]'
     })
-    .copyFiles({
-        from: './assets/uploads', to : 'uploads/[path][name].[ext]'
-    })
     //.enableSassLoader()
 
     // uncomment if you use TypeScript

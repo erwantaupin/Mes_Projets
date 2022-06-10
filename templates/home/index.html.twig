@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+	{# contenu titre #}
 	<div class="container-fluid text-white">
 		<div class="box row">
 			<div class="col-md-7 d-flex justify-content-between align-items-center mx-3 px-5">
@@ -13,6 +14,7 @@
 				</div>
 			</div>
 		</div>
+		{# menu nav #}
 		<div class="boxmenu row justify-content-center">
 			<div class="menu col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 d-flex justify-content-evenly align-items-center px-5">
 				{% if not app.user %}
@@ -30,6 +32,7 @@
 				{% endif %}
 			</div>
 		</div>
+		{# modal de nouveau projet #}
 		<div class="row justify-content-center m-5 p-4">
 			<div class="boxmenu row justify-content-center my-3">
 				<button class="btnadd" type="button" onclick="show('id1')"><img class="btnadditem" src="{{asset("build/images/plus.svg")}}" alt=""></button>
@@ -62,67 +65,29 @@
 					{{ form_end(projetForm) }}
 				</div>
 			</div>
-			<div class="card_projet card m-2">
-				<a href="">
-					<img class="img_card d-flex justify-content-center my-3" src="{{asset("build/images/fakeimg.png")}}" alt="">
-					<div class="titre_card mx-5 d-flex justify-content-center">
-						<h5>Test</h5>
+			{# presentation des projet inscrit en bdd #}
+			{% for contenu in contenu %}
+				{% if contenu.archive == 0 %}
+					<div class="card_projet card m-2">
+						<a href="{{contenu.lienprojet}}">
+							<img class="img_card d-flex justify-content-center my-3" src="{{asset('/uploads/' ~ contenu.mainimage)}}">
+							<div class="titre_card mx-5 d-flex justify-content-center">
+								<h5>{{contenu.titre}}</h5>
+							</div>
+							<div class="name_card">
+								<h5>Createur:
+									{{contenu.relation.username}}</h5>
+							</div>
+							<div class="date_card">
+								<h5>Date:
+									{{contenu.createdat|date('d/m/Y', "Europe/Paris")}}</h5>
+							</div>
+						</a>
+						<a class="remove d-flex justify-content-end pb-3" href="{{path('traitement_archive_project', {id:contenu.id , action:archive}) }}"><img style="width: 50px; border: 1px solid white; border-radius:50%; background-color: white;" src="{{asset("build/images/moin.svg")}}" alt=""></a>
+						<a class="git d-flex justify-content-end pb-3" href="{{contenu.liengithub}}"><img style="width: 50px;" src="{{asset("build/images/github.svg")}}" alt=""></a>
 					</div>
-					<div class="name_card">
-						<h5>Createur: erwan</h5>
-					</div>
-					<div class="date_card">
-						<h5>Date: 07/06/2022</h5>
-					</div>
-				</a>
-				<a class="remove d-flex justify-content-end pb-3" href=""><img style="width: 50px; border: 1px solid white; border-radius:50%; background-color: white;" src="{{asset("build/images/moin.svg")}}" alt=""></a>
-				<a class="git d-flex justify-content-end pb-3" href=""><img style="width: 50px;" src="{{asset("build/images/github.svg")}}" alt=""></a>
-			</div>
-			<div class="card_projet card m-2">
-				<a href="">
-					<img class="img_card d-flex justify-content-center my-3" src="{{asset("build/images/fakeimg.png")}}" alt="">
-					<div class="titre_card mx-5 d-flex justify-content-center">
-						<h5>Test</h5>
-					</div>
-					<div class="name_card">
-						<h5>Createur: erwan</h5>
-					</div>
-					<div class="date_card">
-						<h5>Date: 07/06/2022</h5>
-					</div>
-				</a>
-				<a class="git d-flex justify-content-end pb-3" href=""><img style="width: 50px;" src="{{asset("build/images/github.svg")}}" alt=""></a>
-			</div>
-			<div class="card_projet card m-2">
-				<a href="">
-					<img class="img_card d-flex justify-content-center my-3" src="{{asset("build/images/fakeimg.png")}}" alt="">
-					<div class="titre_card mx-5 d-flex justify-content-center">
-						<h5>Test</h5>
-					</div>
-					<div class="name_card">
-						<h5>Createur: erwan</h5>
-					</div>
-					<div class="date_card">
-						<h5>Date: 07/06/2022</h5>
-					</div>
-				</a>
-				<a class="git d-flex justify-content-end pb-3" href=""><img style="width: 50px;" src="{{asset("build/images/github.svg")}}" alt=""></a>
-			</div>
-			<div class="card_projet card m-2">
-				<a href="">
-					<img class="img_card d-flex justify-content-center my-3" src="{{asset("build/images/fakeimg.png")}}" alt="">
-					<div class="titre_card mx-5 d-flex justify-content-center">
-						<h5>Test</h5>
-					</div>
-					<div class="name_card">
-						<h5>Createur: erwan</h5>
-					</div>
-					<div class="date_card">
-						<h5>Date: 07/06/2022</h5>
-					</div>
-				</a>
-				<a class="git d-flex justify-content-end pb-3" href=""><img style="width: 50px;" src="{{asset("build/images/github.svg")}}" alt=""></a>
-			</div>
+				{% endif %}
+			{% endfor %}
 		</div>
 		<footer class="fixed-bottom">
 			<div class="footer container-fluid ">
