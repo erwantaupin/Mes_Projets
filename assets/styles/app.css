@@ -139,6 +139,38 @@ li a:hover{
 .box_menu2{
     display: block;
 }
+.btn_admin_action{
+    text-decoration: none;
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 4px;
+    
+}
+.btn_admin_action:hover{
+    transform: scale(0.9);
+    transition-duration: 0.5s;
+}
+.brown{
+    background-color: brown;
+    color: white;
+}
+.green{
+    background-color: green;
+    color: black;
+}
+.red{
+    background-color: red;
+    color: white;
+}
+.btn_down{
+    cursor: pointer;
+    width: 30px;
+    height: 50px;
+  }
+  .btnresp, .colbtnresp {
+    display: none;
+  }
 @media (max-width: 768px) {
     .box_menu1{
         display: block;
@@ -147,6 +179,20 @@ li a:hover{
         display: none;
     }
 }
+@media screen and (max-width: 1148px) {
+    .btnresp {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important; 
+    }
+    .colbtnresp {
+      display: block !important;
+      width: 100% !important;
+      text-align: center !important;
+      border-bottom: none !important;
+    }
+  }
 /* page connexion et inscription */
 .box_retour{
     width: 90px;
