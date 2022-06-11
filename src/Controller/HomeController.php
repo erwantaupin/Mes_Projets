@@ -8,6 +8,7 @@ use App\Repository\UserPpRepository;
 use App\Repository\ProjetPpRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index(Request $request, EntityManagerInterface $manager, ProjetPpRepository $projetPpRepository): Response
     {
@@ -64,26 +65,35 @@ class HomeController extends AbstractController
         ]);
     }
     /**
-     * @Route("/traitement/{id}/{action}", name="traitement_archive_project")
+     * @Route("/user/traitement/{id}/{action}", name="traitement_archive_project")
      */
     public function traitement_archive_project(ProjetPpRepository $projet, EntityManagerInterface $manager, $id, $action): Response
     {
-        if (isset($action)) {
-            $reponse = $projet->find($id);
-            if ($action === 'archive') {
+        $user = $this->getUser();
 
-                $reponse->setArchive(1);
+        $reponse = $projet->find($id);
+        $iduser = $reponse->getRelation();
 
-                $manager->persist($reponse);
-                $manager->flush();
+        if ($user == $iduser) {
+            if (isset($action)) {
+                if ($action === 'archive') {
 
-                return $this->redirectToRoute('home');
+                    $reponse->setArchive(1);
+
+                    $manager->persist($reponse);
+                    $manager->flush();
+
+                    return $this->redirectToRoute('home');
+                }
+
+                return $this->render('home/index.html.twig', [
+                    'contenu' => $reponse,
+                    'archive' => 'archive',
+                ]);
             }
-
-            return $this->render('home/index.html.twig', [
-                'contenu' => $reponse,
-                'archive' => 'archive',
-            ]);
+        } else {
+            $this->addFlash("error", "l'action demandé vous à été refusé, car vous n'ête pas le proprietaire de ce contenu!");
+            return $this->redirectToRoute('home');
         }
     }
 }

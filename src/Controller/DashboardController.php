@@ -17,6 +17,7 @@ class DashboardController extends AbstractController
     public function dashboard(ProjetPpRepository $ProjetPpRepository): Response
     {
         $contenu = $ProjetPpRepository->findAll();
+
         return $this->render('admin/dashboard.html.twig', [
             'contenu' => $contenu,
             'archiver' => 'archiver',

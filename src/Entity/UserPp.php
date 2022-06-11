@@ -83,14 +83,15 @@ class UserPp implements UserInterface, PasswordAuthenticatedUserInterface
     private $created_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=ProjetPp::class, mappedBy="relation")
+     * @ORM\OneToMany(targetEntity=ProjetPp::class, mappedBy="relation", orphanRemoval=true)
      */
-    private $projetPps;
+    private $relation;
 
     public function __construct()
     {
         $this->created_at = new \DateTime("now");
         $this->projetPps = new ArrayCollection();
+        $this->relation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -200,27 +201,27 @@ class UserPp implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, ProjetPp>
      */
-    public function getProjetPps(): Collection
+    public function getRelation(): Collection
     {
-        return $this->projetPps;
+        return $this->relation;
     }
 
-    public function addProjetPp(ProjetPp $projetPp): self
+    public function addRelation(ProjetPp $relation): self
     {
-        if (!$this->projetPps->contains($projetPp)) {
-            $this->projetPps[] = $projetPp;
-            $projetPp->setRelation($this);
+        if (!$this->relation->contains($relation)) {
+            $this->relation[] = $relation;
+            $relation->setRelation($this);
         }
 
         return $this;
     }
 
-    public function removeProjetPp(ProjetPp $projetPp): self
+    public function removeRelation(ProjetPp $relation): self
     {
-        if ($this->projetPps->removeElement($projetPp)) {
+        if ($this->relation->removeElement($relation)) {
             // set the owning side to null (unless already changed)
-            if ($projetPp->getRelation() === $this) {
-                $projetPp->setRelation(null);
+            if ($relation->getRelation() === $this) {
+                $relation->setRelation(null);
             }
         }
 

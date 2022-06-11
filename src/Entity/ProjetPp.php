@@ -48,7 +48,8 @@ class ProjetPp
     private $lien_github;
 
     /**
-     * @ORM\ManyToOne(targetEntity=UserPp::class, inversedBy="projetPps")
+     * @ORM\ManyToOne(targetEntity=UserPp::class, inversedBy="relation")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $relation;
 
