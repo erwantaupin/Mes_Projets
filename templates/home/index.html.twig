@@ -61,7 +61,7 @@
 							{{ form_row(projetForm.main_image) }}
 						</div>
 						<div class="d-flex justify-content-center my-5">
-							<button type="submit" class="btnco">valider</button>
+							<button type="submit" class="btnco" id="btnajax" data-action="modal-form#submitForm">valider</button>
 						</div>
 						{{ form_end(projetForm) }}
 					</div>
@@ -105,6 +105,14 @@
 		function show(elementId) {
 document.getElementById("id1").style.display = "none";
 document.getElementById(elementId).style.display = "flex";
+}
+	</script>
+	<script>
+		window.onload = () => {
+document.getElementById("btnajax").addeventListener("onclick", function () {
+let form = this.closest("form");
+console.log(form)
+})
 }
 	</script>
 {% endblock %}
