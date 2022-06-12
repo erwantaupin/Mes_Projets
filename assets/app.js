@@ -32,3 +32,4 @@ $(document).ready(function () {
       lengthMenu: [5, 10],
     });
   });
+

@@ -38,6 +38,9 @@
             "./migrations/.gitignore"
         ]
     },
+    "mercuryseries/flashy-bundle": {
+        "version": "v5.1.0"
+    },
     "omines/datatables-bundle": {
         "version": "0.5",
         "recipe": {
