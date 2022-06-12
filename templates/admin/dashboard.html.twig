@@ -37,6 +37,7 @@
 							<th>Nom du createur</th>
 							<th>Date de creation</th>
 							<th>Lien Github</th>
+							<th>pdf projet</th>
 							<th class="text-right">Actions</th>
 						</tr>
 					</thead>
@@ -55,6 +56,9 @@
 								</td>
 								<td>
 									{{contenu.liengithub}}
+								</td>
+								<td>
+									<a href="{{path('traitement_pdf' , {id:contenu.id , user:contenu.relation.id}) }}" class=" btn_admin_action green p-1">pdf</a>
 								</td>
 								<td>
 									<a href="{{path('admintraitementprojet' , {id:contenu.id , action:archiver}) }}" class="btn_admin_action brown p-1">Archiver</a>
