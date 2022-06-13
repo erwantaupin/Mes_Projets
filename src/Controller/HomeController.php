@@ -133,7 +133,7 @@ class HomeController extends AbstractController
                 }
                 .titre-menu{
                     text-align: center;
-                    font-size: 18px;
+                    font-size: 22px;
                 }
                 .info{
                     font-size: 16px;
@@ -152,12 +152,28 @@ class HomeController extends AbstractController
                     text-align: center;
                 }
                 .imagesize{
-                    wight: 500px;
-                    height: auto;
+                    margin: 50px;
+                }
+                .image img{
+                    height: 300px;
+                }
+                .minititre{
+                    text-align: center;
+                    font-size: 18px;
+                }
+                .link{
+                    text-align: center;
+                    font-size: 16px;
+                }
+                .margin{
+                    margin-top: 60px;
+                }
+                .date{
+                    text-align: right;
                 }
             </style>
                 <div class='titre-menu'>Compte Utilisateur</div>
-            <br>
+            <div class='margin'></div>
                 <div class='info-user'>
                     <strong class='info'>username:</strong></div>
                     <div class='info-user-right'> $username</div>
@@ -167,47 +183,16 @@ class HomeController extends AbstractController
             <br>
                 <div class='info-user'><strong class='info'>date de creation:</strong></div>
                 <div class='info-user-right'> $neodate</div>
-            <br>
-        <div class='table'>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            Titre
-                        </th>
-                        <th>
-                            date de creation
-                        </th>
-                        <th>
-                            lien du projet
-                        </th>
-                        <th>
-                            lien du github
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            $titre
-                        </td>
-                        <td>
-                            $neodateprojet
-                        </td>
-                        <td>
-                            $lienprojet
-                        </td>
-                        <td>
-                            $liengithub
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class='image'>
-        <!--<img class='imagesize' src='./uploads/$image'/> -->
-        <!--<img class='imagesize' src='{{asset('uploads/$image')}}'/> -->
-        </div>
+            <div class='margin'></div>
+            <div class='titre-menu'>$titre</div>
+        <div class='margin'></div>
+        <div class='minititre'>lien du projet</div>
+        <div class='link'>$lienprojet</div>
+        <br>
+        <div class='minititre'>lien du github</div>
+        <div class='link'>$liengithub</div>
+        <div class='image'><img class='imagesize' src='./uploads/$image'/></div>
+        <div class='date'>date de creation: $neodateprojet</div>
     </page>
         ";
 
