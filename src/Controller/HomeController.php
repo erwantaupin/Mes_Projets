@@ -205,7 +205,7 @@ class HomeController extends AbstractController
             </table>
         </div>
         <div class='image'>
-        <!--<img class='imagesize' src='../../public/uploads/$image'/> -->
+        <!--<img class='imagesize' src='./uploads/$image'/> -->
         <!--<img class='imagesize' src='{{asset('uploads/$image')}}'/> -->
         </div>
     </page>
