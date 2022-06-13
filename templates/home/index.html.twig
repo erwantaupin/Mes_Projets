@@ -34,9 +34,12 @@
 		</div>
 		{# modal de nouveau projet #}
 		<div class="row justify-content-center m-5 p-4">
+			<div class="pdf1 text-center">
+				<a href="{{asset("build/images/pdf_exo_1.pdf")}}">pdf exo 1</a>
+			</div>
 			{% if app.user %}
 				<div class="boxmenu row justify-content-center my-3">
-					<button class="btnadd" type="button" data-modal-trigger="sample-modal2"><img class="btnadditem" src="{{asset("build/images/plus.svg")}}" alt=""></button>
+					<button class="btnadd" type="button"><img class="btnadditem" src="{{asset("build/images/plus.svg")}}" alt="" data-modal-trigger="sample-modal2"></button>
 				</div>
 				<div class=" modal justify-content-center" data-modal-name="sample-modal2" data-modal-dismiss>
 					<div class="box-additem col-12 col-md-8 bg_form my-5">
