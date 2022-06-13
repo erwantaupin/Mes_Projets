@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\ProjetPp;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -30,7 +31,7 @@ class AddProjetType extends AbstractType
                     'placeholder' => 'HTTPS://...'
                 ]
             ])
-            ->add('main_image', FileType::class, [
+            ->add('image', FileType::class, [
                 'label' => 'Image du projet',
                 'multiple' => false,
                 'mapped' => false,
@@ -46,7 +47,8 @@ class AddProjetType extends AbstractType
                     'class' => 'form-control',
                     'placeholder' => 'HTTPS://...'
                 ]
-            ]);
+            ])
+            ->add('captcha', ReCaptchaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

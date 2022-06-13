@@ -15,4 +15,5 @@ return [
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
     Omines\DataTablesBundle\DataTablesBundle::class => ['all' => true],
     MercurySeries\FlashyBundle\MercurySeriesFlashyBundle::class => ['all' => true],
+    VictorPrdh\RecaptchaBundle\RecaptchaBundle::class => ['all' => true],
 ];

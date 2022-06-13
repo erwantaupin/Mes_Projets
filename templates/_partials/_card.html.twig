@@ -1,0 +1,20 @@
+<div class="card_projet card m-2">
+	<a href="{{contenu.lienprojet}}">
+		<img class="img_card d-flex justify-content-center my-3" src="{{asset('/upload/' ~ contenu.mainimage)}}">
+		<div class="titre_card mx-5 d-flex justify-content-center">
+			<h5>{{contenu.titre}}</h5>
+		</div>
+		<div class="name_card">
+			<h5>Createur:
+				{{contenu.relation.username}}</h5>
+		</div>
+		<div class="date_card">
+			<h5>Date:
+				{{contenu.createdat|date('d/m/Y', "Europe/Paris")}}</h5>
+		</div>
+	</a>
+	{% if app.user and contenu.relation.id == app.user.id %}
+		<a class="remove d-flex justify-content-end pb-3" href="{{path('traitement_archive_project', {id:contenu.id , action:archive}) }}"><img style="width: 50px; border: 1px solid white; border-radius:50%; background-color: white;" src="{{asset("build/images/moin.svg")}}"></a>
+	{% endif %}
+	<a class="git d-flex justify-content-end pb-3" href="{{contenu.liengithub}}"><img style="width: 50px;" src="{{asset("build/images/github.svg")}}" alt=""></a>
+</div>

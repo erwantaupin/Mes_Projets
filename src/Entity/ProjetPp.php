@@ -10,6 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProjetPp
 {
+    const PROJET_ADDED_SUCCESSFULLY = 'PROJET_ADDED_SUCCESSFULLY';
+    const PROJET_INVALID_FORM = 'PROJET_INVALID_FORM';
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
