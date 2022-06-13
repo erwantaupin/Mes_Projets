@@ -44,16 +44,6 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @route("/user/test", name="test")
-     */
-    public function test(): Response
-    {
-
-
-        return $this->render('home/test.html.twig', []);
-    }
-
-    /**
      * @Route("/user/traitement/{id}/{action}", name="traitement_archive_project")
      */
     public function traitement_archive_project(ProjetPpRepository $projet, EntityManagerInterface $manager, $id, $action): Response

@@ -37,6 +37,15 @@ body {
     color: white;
     text-decoration: none;
 }
+.pdf1 a{
+    color: white;
+    text-decoration: none;
+    background-color: #BD4031;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
 .boxcontain{
     background-color: brown;
 }
@@ -78,9 +87,9 @@ body {
     position: absolute; top: 0; right:0; margin-right: -10px; margin-top: -10px;
 }
 .btnadd{
-    width: 50px;
     background: none;
     border: none;
+    width: fit-content;
 }
 .btnadditem{
     width: 50px;
