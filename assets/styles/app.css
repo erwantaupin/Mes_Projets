@@ -93,6 +93,7 @@ body {
 }
 .box-additem{
     border: 1px solid white;
+    
 }
 .btnquitt{
     margin-right: 15px;
@@ -216,7 +217,7 @@ li a:hover{
 /* formaulaire inscription et connexion */
 
 .bg_form{
-    background-color: #BD4031;
+    background-color: #bd3f3163;
     border-radius: 7px;
 }
 .btnco{
