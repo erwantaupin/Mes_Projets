@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ProjetPp;
 use App\Form\AddProjetType;
+use App\Service\ProjetForm;
 use App\Repository\UserPpRepository;
 use App\Repository\ProjetPpRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,7 +19,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(Request $request, EntityManagerInterface $manager, ProjetPpRepository $projetPpRepository): Response
+    public function index(Request $request, EntityManagerInterface $manager, ProjetPpRepository $projetPpRepository, ProjetForm $neoform): Response
     {
         // affichage des projet
         $projet = $projetPpRepository->findAll();
@@ -31,31 +32,8 @@ class HomeController extends AbstractController
         $projetForm = $this->createForm(AddProjetType::class, $newprojet);
         $projetForm->handleRequest($request);
 
-        if ($projetForm->isSubmitted() && $projetForm->isValid()) {
-
-            $images = $projetForm->get('main_image')->getData();
-
-            if ($images != null) {
-                // on genere un new nom de fichier
-                $fichier = md5(uniqid()) . '.' . $images->guessExtension();
-                // on copie le fichier dans le dossier uploads
-                $images->move(
-                    $this->getParameter('images_directory'),
-                    $fichier
-                );
-                // on stocke l'image dans la BDD (son nom)
-
-                $newprojet->setMainImage($fichier);
-                $newprojet->setArchive(0);
-
-                $manager->persist($newprojet);
-                $manager->flush();
-                $this->addFlash("success", "le projet à été mis en ligne !");
-                return $this->redirectToRoute('home');
-            } else {
-                $this->addFlash("error", "l'image inseré fait plus de 2mo et/ou aucune image n'a été inseré!");
-                return $this->redirectToRoute('home');
-            }
+        if ($projetForm->isSubmitted()) {
+            return $neoform->handleProjetForm($projetForm);
         }
 
         return $this->render('home/index.html.twig', [
@@ -64,6 +42,17 @@ class HomeController extends AbstractController
             'archive' => 'archive',
         ]);
     }
+
+    /**
+     * @route("/user/test", name="test")
+     */
+    public function test(): Response
+    {
+
+
+        return $this->render('home/test.html.twig', []);
+    }
+
     /**
      * @Route("/user/traitement/{id}/{action}", name="traitement_archive_project")
      */

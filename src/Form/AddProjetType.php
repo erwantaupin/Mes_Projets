@@ -30,7 +30,7 @@ class AddProjetType extends AbstractType
                     'placeholder' => 'HTTPS://...'
                 ]
             ])
-            ->add('main_image', FileType::class, [
+            ->add('image', FileType::class, [
                 'label' => 'Image du projet',
                 'multiple' => false,
                 'mapped' => false,
