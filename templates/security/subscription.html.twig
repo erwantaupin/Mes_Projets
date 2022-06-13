@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}connexion
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid text-white">
+		<div class="box row">
+			<div class="col-12 d-flex justify-content-center align-items-center">
+				<div class="boxtitre col-3 d-flex justify-content-center align-items-center px-3">
+					<h1>Mes Projets</h1>
+				</div>
+			</div>
+		</div>
+		<div class="boxmenu row justify-content-center">
+			<div class="menu col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 d-flex justify-content-evenly align-items-center px-5">
+				<a href="{{path('home')}}" class="btnco m-2 text-center">Retour</a>
+				<H3>/</H3>
+				<a href="{{path('login')}}" class="btnco m-2 text-center">Connexion</a>
+			</div>
+		</div>
+		<div class="row justify-content-center mx-2" id="id2" style="display: flex;">
+			<div class="col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 bg_form my-5">
+				<div class="d-flex justify-content-center my-5">
+					<h3>Inscription</h3>
+				</div>
+				{{ form_start(inscriptionForm) }}
+				<div class="mx-4 my-5">
+					{{ form_row(inscriptionForm.username) }}
+				</div>
+				<div class="mx-4 my-5">
+					{{ form_row(inscriptionForm.mail) }}
+				</div>
+				<div class="mx-4 my-5">
+					{{ form_row(inscriptionForm.password) }}
+				</div>
+				<div class="mx-4 my-5">
+					{{ form_row(inscriptionForm.confirm_password) }}
+				</div>
+				<div class="d-flex justify-content-center my-5">
+					<button type="submit" class="btnco">S'inscrire'</button>
+				</div>
+				{{ form_end(inscriptionForm) }}
+			</div>
+		</div>
+		<footer class="fixed-bottom">
+			<div class="footer container-fluid ">
+				<div class="col-md-3 d-flex justify-content-center">
+					<h5 class="textfooter">&copy;.Copyright by Erwan</h5>
+				</div>
+			</div>
+		</footer>
+	</div>
+{% endblock %}

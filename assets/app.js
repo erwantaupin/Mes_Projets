@@ -8,5 +8,28 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
-// start the Stimulus application
-import './bootstrap';
+//Importation du css minifié bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "datatables.net-bs5";
+import "datatables.net-responsive-bs5";
+
+//Importation de jquery
+import $ from "jquery";
+
+
+$(document).ready(function () {
+    $("#datatable").DataTable({
+      responsive: true,
+      paging: true,
+      filter: false,
+      lengthMenu: [5, 10],
+    });
+    $("#datadash").DataTable({
+      responsive: true,
+      paging: true,
+      filter: false,
+      lengthMenu: [5, 10],
+    });
+  });
+

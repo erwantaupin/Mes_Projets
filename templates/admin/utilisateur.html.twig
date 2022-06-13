@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}dashboard
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid text-white">
+
+		<div class="box row">
+			<div class="col-md-7 d-flex justify-content-between align-items-center mx-3 px-5">
+				<h5 class="politesse">Bonjour Erwan</h5>
+				<div class="boxtitreadmin col-3 d-flex justify-content-center align-items-center px-3">
+					<h1>Administrateur</h1>
+				</div>
+			</div>
+		</div>
+		<div class="boxmenu box_menu1 row justify-content-center">
+
+			<div class="menu col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 d-flex justify-content-evenly align-items-center px-5">
+				<a class="" href="{{path('home')}}">retour</a>
+				<a class="" href="{{path('dashboard')}}">Contenu</a>
+				<a class="" href="{{path('utilisateur')}}">Utilisateur</a>
+				<a class="" href="{{path('archive')}}">Archive</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="tableau col-12 col-md-10 mt-2">
+				<div class="m-5">
+					<h3>Utilisateur</h3>
+				</div>
+				<table id="datadash" class="table dt-responsive nowrap projects-table  text-white" style="width:100%">
+					<thead>
+						<tr>
+							<th class="colbtnresp">
+								développer
+							</th>
+							<th>pseudo</th>
+							<th>mail</th>
+							<th>Date de creation</th>
+							<th class="text-right">Actions</th>
+						</tr>
+					</thead>
+					{% for contenu in contenu %}
+						<tr>
+							<td class="btnresp">
+								<img class="btn_down" src="{{asset('build/images/down.svg')}}" alt="">
+							</td>
+							<td>{{contenu.username}}</td>
+							<td>
+								{{contenu.mail}}
+							</td>
+							<td>
+								{{contenu.createdat|date('d/m/Y', "Europe/Paris")}}
+							</td>
+							<td>
+								{% if contenu.actif == 0 %}
+									<a href="{{path('admintraitementuser' , {id:contenu.id , action:bloquer}) }}" class="btn_admin_action red p-1">bloquer</a>
+								{% else %}
+									<a href="{{path('admintraitementuser' , {id:contenu.id , action:debloquer}) }}" class="btn_admin_action green p-1">débloquer</a>
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div class="box_menu2 col-2 px-0">
+				<div class="wrapper menulat d-flex justify-content-center text-center no-gutters">
+					<nav id="sidebar">
+						<div class="sidebar-header my-4">
+							<h3>Menu</h3>
+						</div>
+						<ul class="list-unstyled components">
+							<li class="my-5 retour">
+								<a href="{{path('home')}}">
+									<h4>Retour</h4>
+								</a>
+							</li>
+							<li class="my-4">
+								<a href="{{path('dashboard')}}">
+									<h4>Contenu</h4>
+								</a>
+							</li>
+							<li class="my-4 active">
+								<a href="{{path('utilisateur')}}">
+									<h4>Utilisateur</h4>
+								</a>
+							</li>
+							<li class="my-4">
+								<a href="{{path('archive')}}">
+									<h4>Archive</h4>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<footer class="fixed-bottom">
+			<div class="footer container-fluid ">
+				<div class="col-md-3 d-flex justify-content-center">
+					<h5 class="textfooter">&copy;.Copyright by Erwan</h5>
+				</div>
+			</div>
+		</footer>
+	</div>
+{% endblock %}
