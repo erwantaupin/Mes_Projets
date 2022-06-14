@@ -170,7 +170,7 @@ class HomeController extends AbstractController
         <br>
         <div class='minititre'>lien du github</div>
         <div class='link'>$liengithub</div>
-        <div class='image'><img class='imagesize' src='./uploads/$image'/></div>
+        <div class='image'><img class='imagesize' src='./upload/$image'/></div>
         <div class='date'>date de creation: $neodateprojet</div>
     </page>
         ";

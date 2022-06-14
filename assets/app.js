@@ -8,8 +8,10 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
+
 //Importation du css minifié bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 import "datatables.net-bs5";
 import "datatables.net-responsive-bs5";
