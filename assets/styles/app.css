@@ -329,3 +329,7 @@ li a:hover{
       opacity: 1;
     }
   }
+/* exo map */
+#map {
+    height: 400px;
+ }

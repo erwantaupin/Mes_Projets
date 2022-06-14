@@ -7,7 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-import './scss/map.scss';
+
 
 //Importation du css minifié bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";

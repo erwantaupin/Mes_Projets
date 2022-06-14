@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\MapPp;
+use App\Form\MappyType;
+use App\Repository\MapPpRepository;
 use App\Repository\UserPpRepository;
 use App\Repository\ProjetPpRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -116,9 +120,26 @@ class DashboardController extends AbstractController
     /**
      * @Route("/admin/mappy", name="mappy")
      */
-    public function mappy(ProjetPpRepository $ProjetPpRepository, EntityManagerInterface $manager): Response
+    public function mappy(MapPpRepository $mapPp, Request $request, EntityManagerInterface $manager): Response
     {
+        $marker = $mapPp->findAll();
+        // dd($marker);
+        $newmarker = new MapPp();
 
-        return $this->render('admin/mappy.html.twig', []);
+        $mapForm = $this->createForm(MappyType::class, $newmarker);
+        $mapForm->handleRequest($request);
+
+        if ($mapForm->isSubmitted() && $mapForm->isValid()) {
+
+            $manager->persist($newmarker);
+            $manager->flush();
+            $this->addFlash('success', 'Vous avez votre marker.');
+            return $this->redirectToRoute('mappy');
+        }
+
+        return $this->render('admin/mappy.html.twig', [
+            'mapForm' => $mapForm->createView(),
+            'contenu' => $marker,
+        ]);
     }
 }
