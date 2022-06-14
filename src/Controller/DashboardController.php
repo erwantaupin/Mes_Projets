@@ -113,4 +113,12 @@ class DashboardController extends AbstractController
             'dearchiver' => 'dearchiver',
         ]);
     }
+    /**
+     * @Route("/admin/mappy", name="mappy")
+     */
+    public function mappy(ProjetPpRepository $ProjetPpRepository, EntityManagerInterface $manager): Response
+    {
+
+        return $this->render('admin/mappy.html.twig', []);
+    }
 }
