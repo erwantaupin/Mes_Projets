@@ -43,27 +43,27 @@
 				</div>
 				<div class=" modal justify-content-center" data-modal-name="sample-modal2" data-modal-dismiss>
 					<div class="box-additem col-12 col-md-8 bg_form my-5">
-						<div class="d-flex justify-content-center my-5">
+						<div class="d-flex justify-content-center mgspe">
 							<h3>Ajout Projet</h3>
 						</div>
 						{{ form_start(projetForm) }}
-						<div class="mx-4 my-5">
+						<div class="mx-4 mgspe">
 							{{ form_row(projetForm.titre) }}
 						</div>
-						<div class="mx-4 my-5">
+						<div class="mx-4 mgspe">
 							{{ form_row(projetForm.lien_projet) }}
 						</div>
-						<div class="mx-4 my-5">
+						<div class="mx-4 mgspe">
 							{{ form_row(projetForm.lien_github) }}
 						</div>
-						<div class="mx-auto w-25 my-5">
+						<div class="mx-auto w-25 mgspe">
 							{{ form_row(projetForm.image) }}
 						</div>
-						<div class="mx-auto w-25 my-5">
+						<div class="d-flex justify-content-evenly mgspe">
 							{{ form_row(projetForm.captcha) }}
-						</div>
-						<div class="d-flex justify-content-center my-5">
-							<button type="submit" class="btnco" id="btnajax" data-action="modal-form#submitForm">valider</button>
+							<div class="my-auto py-2 tailley">
+								<button type="submit" class="btnco" id="btnajax" data-action="modal-form#submitForm">valider</button>
+							</div>
 						</div>
 						{{ form_end(projetForm) }}
 					</div>

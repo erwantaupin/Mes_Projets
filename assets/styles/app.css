@@ -331,5 +331,11 @@ li a:hover{
   }
 /* exo map */
 #map {
-    height: 400px;
+    height: 40vh;
+ }
+ .mgspe{
+    margin: 3vh 0;
+ }
+ .tailley{
+    height: 40px;
  }
